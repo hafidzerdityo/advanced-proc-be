@@ -267,8 +267,6 @@ async def get_procurement_request_list_forecast(
             'type': 'forecasted'
         })
 
-        1/0
-
         # Combine
         df_all = pd.concat([df_old, df_forecast], ignore_index=True)
         return df_all.to_dict(orient='records')
