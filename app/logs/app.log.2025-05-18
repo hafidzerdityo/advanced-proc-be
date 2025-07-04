@@ -1,0 +1,163 @@
+2025-05-19T01:00:33.483473+07:00 - INFO - {"event": "Starting the application", "logger": "logs.log_config", "level": "info", "timestamp": "2025-05-19T01:00:33.483323+07:00"}
+2025-05-19T01:00:33.483416+07:00 - INFO - {"event": "Starting the application", "logger": "logs.log_config", "level": "info", "timestamp": "2025-05-19T01:00:33.483276+07:00"}
+2025-05-19T01:00:33.690277+07:00 - INFO - select pg_catalog.version()
+2025-05-19T01:00:33.691186+07:00 - INFO - [raw sql] ()
+2025-05-19T01:00:33.693571+07:00 - INFO - select pg_catalog.version()
+2025-05-19T01:00:33.695721+07:00 - INFO - [raw sql] ()
+2025-05-19T01:00:33.696865+07:00 - INFO - select current_schema()
+2025-05-19T01:00:33.697539+07:00 - INFO - [raw sql] ()
+2025-05-19T01:00:33.699559+07:00 - INFO - select current_schema()
+2025-05-19T01:00:33.700142+07:00 - INFO - [raw sql] ()
+2025-05-19T01:00:33.700670+07:00 - INFO - show standard_conforming_strings
+2025-05-19T01:00:33.701786+07:00 - INFO - [raw sql] ()
+2025-05-19T01:00:33.703191+07:00 - INFO - show standard_conforming_strings
+2025-05-19T01:00:33.706085+07:00 - INFO - [raw sql] ()
+2025-05-19T01:00:33.708869+07:00 - INFO - BEGIN (implicit)
+2025-05-19T01:00:33.709803+07:00 - INFO - BEGIN (implicit)
+2025-05-19T01:00:33.715846+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.716319+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.717390+07:00 - INFO - [generated in 0.00090s] ('vendoraccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.717640+07:00 - INFO - [generated in 0.00133s] ('vendoraccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.724877+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.724931+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.725747+07:00 - INFO - [cached since 0.009659s ago] ('vendortag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.725786+07:00 - INFO - [cached since 0.0101s ago] ('vendortag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.727690+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.727708+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.728534+07:00 - INFO - [cached since 0.01285s ago] ('requestprocurement', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.728519+07:00 - INFO - [cached since 0.01244s ago] ('requestprocurement', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.730331+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.730345+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.730974+07:00 - INFO - [cached since 0.0149s ago] ('requesttag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.730988+07:00 - INFO - [cached since 0.01532s ago] ('requesttag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.732487+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.732555+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-19T01:00:33.733265+07:00 - INFO - [cached since 0.01718s ago] ('adminaccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.733305+07:00 - INFO - [cached since 0.01762s ago] ('adminaccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-19T01:00:33.737281+07:00 - INFO - 
+CREATE TABLE vendoraccount (
+	id SERIAL NOT NULL, 
+	name VARCHAR NOT NULL, 
+	description VARCHAR, 
+	location VARCHAR, 
+	email VARCHAR NOT NULL, 
+	hashed_password VARCHAR NOT NULL, 
+	created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL, 
+	updated_at TIMESTAMP WITHOUT TIME ZONE, 
+	PRIMARY KEY (id)
+)
+
+
+2025-05-19T01:00:33.737536+07:00 - INFO - 
+CREATE TABLE vendoraccount (
+	id SERIAL NOT NULL, 
+	name VARCHAR NOT NULL, 
+	description VARCHAR, 
+	location VARCHAR, 
+	email VARCHAR NOT NULL, 
+	hashed_password VARCHAR NOT NULL, 
+	created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL, 
+	updated_at TIMESTAMP WITHOUT TIME ZONE, 
+	PRIMARY KEY (id)
+)
+
+
+2025-05-19T01:00:33.738535+07:00 - INFO - [no key 0.00114s] ()
+2025-05-19T01:00:33.738540+07:00 - INFO - [no key 0.00135s] ()
+2025-05-19T01:00:33.745174+07:00 - INFO - CREATE INDEX ix_vendoraccount_name ON vendoraccount (name)
+2025-05-19T01:00:33.746766+07:00 - INFO - [no key 0.00163s] ()
+2025-05-19T01:00:33.749398+07:00 - INFO - CREATE UNIQUE INDEX ix_vendoraccount_email ON vendoraccount (email)
+2025-05-19T01:00:33.750335+07:00 - INFO - [no key 0.00094s] ()
+2025-05-19T01:00:33.752469+07:00 - INFO - CREATE INDEX ix_vendoraccount_id ON vendoraccount (id)
+2025-05-19T01:00:33.752974+07:00 - INFO - [no key 0.00052s] ()
+2025-05-19T01:00:33.756112+07:00 - INFO - 
+CREATE TABLE requestprocurement (
+	id SERIAL NOT NULL, 
+	title VARCHAR NOT NULL, 
+	category VARCHAR NOT NULL, 
+	description VARCHAR, 
+	requirements VARCHAR, 
+	price NUMERIC(20, 2) NOT NULL, 
+	location VARCHAR, 
+	due_date TIMESTAMP WITHOUT TIME ZONE NOT NULL, 
+	status VARCHAR NOT NULL, 
+	created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL, 
+	updated_at TIMESTAMP WITHOUT TIME ZONE, 
+	PRIMARY KEY (id)
+)
+
+
+2025-05-19T01:00:33.756831+07:00 - INFO - [no key 0.00074s] ()
+2025-05-19T01:00:33.761482+07:00 - INFO - CREATE INDEX ix_requestprocurement_title ON requestprocurement (title)
+2025-05-19T01:00:33.762361+07:00 - INFO - [no key 0.00089s] ()
+2025-05-19T01:00:33.764745+07:00 - INFO - CREATE INDEX ix_requestprocurement_category ON requestprocurement (category)
+2025-05-19T01:00:33.765393+07:00 - INFO - [no key 0.00067s] ()
+2025-05-19T01:00:33.768239+07:00 - INFO - CREATE INDEX ix_requestprocurement_status ON requestprocurement (status)
+2025-05-19T01:00:33.768723+07:00 - INFO - [no key 0.00049s] ()
+2025-05-19T01:00:33.771629+07:00 - INFO - 
+CREATE TABLE adminaccount (
+	id SERIAL NOT NULL, 
+	username VARCHAR NOT NULL, 
+	hashed_password VARCHAR NOT NULL, 
+	total_budget NUMERIC(20, 2) NOT NULL, 
+	created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL, 
+	updated_at TIMESTAMP WITHOUT TIME ZONE, 
+	PRIMARY KEY (id)
+)
+
+
+2025-05-19T01:00:33.772825+07:00 - INFO - [no key 0.00121s] ()
+2025-05-19T01:00:33.776314+07:00 - INFO - CREATE UNIQUE INDEX ix_adminaccount_username ON adminaccount (username)
+2025-05-19T01:00:33.776933+07:00 - INFO - [no key 0.00062s] ()
+2025-05-19T01:00:33.779779+07:00 - INFO - 
+CREATE TABLE vendortag (
+	id SERIAL NOT NULL, 
+	vendor_email VARCHAR NOT NULL, 
+	tag_name VARCHAR NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(vendor_email) REFERENCES vendoraccount (email)
+)
+
+
+2025-05-19T01:00:33.780313+07:00 - INFO - [no key 0.00052s] ()
+2025-05-19T01:00:33.785174+07:00 - INFO - CREATE INDEX ix_vendortag_vendor_email ON vendortag (vendor_email)
+2025-05-19T01:00:33.785724+07:00 - INFO - [no key 0.00055s] ()
+2025-05-19T01:00:33.788248+07:00 - INFO - CREATE INDEX ix_vendortag_tag_name ON vendortag (tag_name)
+2025-05-19T01:00:33.788890+07:00 - INFO - [no key 0.00066s] ()
+2025-05-19T01:00:33.791366+07:00 - INFO - 
+CREATE TABLE requesttag (
+	id SERIAL NOT NULL, 
+	request_id INTEGER NOT NULL, 
+	tag_name VARCHAR NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(request_id) REFERENCES requestprocurement (id)
+)
+
+
+2025-05-19T01:00:33.791934+07:00 - INFO - [no key 0.00057s] ()
+2025-05-19T01:00:33.796511+07:00 - INFO - CREATE INDEX ix_requesttag_tag_name ON requesttag (tag_name)
+2025-05-19T01:00:33.797258+07:00 - INFO - [no key 0.00078s] ()
+2025-05-19T01:00:33.799675+07:00 - INFO - CREATE INDEX ix_requesttag_request_id ON requesttag (request_id)
+2025-05-19T01:00:33.800306+07:00 - INFO - [no key 0.00065s] ()
+2025-05-19T01:00:33.802123+07:00 - INFO - COMMIT
+2025-05-19T01:00:33.813455+07:00 - INFO - COMMIT

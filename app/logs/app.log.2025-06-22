@@ -1,0 +1,146 @@
+2025-07-04T18:57:40.172950+07:00 - INFO - {"event": "Starting the application", "logger": "logs.log_config", "level": "info", "timestamp": "2025-07-04T18:57:40.172215+07:00"}
+2025-07-04T18:57:42.410468+07:00 - INFO - select pg_catalog.version()
+2025-07-04T18:57:42.411175+07:00 - INFO - [raw sql] ()
+2025-07-04T18:57:42.415356+07:00 - INFO - select current_schema()
+2025-07-04T18:57:42.416536+07:00 - INFO - [raw sql] ()
+2025-07-04T18:57:42.421042+07:00 - INFO - show standard_conforming_strings
+2025-07-04T18:57:42.421731+07:00 - INFO - [raw sql] ()
+2025-07-04T18:57:42.423440+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:57:42.428774+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-04T18:57:42.429416+07:00 - INFO - [generated in 0.00076s] ('vendoraccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-04T18:57:42.441740+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-04T18:57:42.443104+07:00 - INFO - [cached since 0.01446s ago] ('vendortag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-04T18:57:42.445446+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-04T18:57:42.446166+07:00 - INFO - [cached since 0.01755s ago] ('requestprocurement', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-04T18:57:42.447820+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-04T18:57:42.448475+07:00 - INFO - [cached since 0.01987s ago] ('requesttag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-04T18:57:42.451171+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-07-04T18:57:42.452156+07:00 - INFO - [cached since 0.02353s ago] ('adminaccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-07-04T18:57:42.454021+07:00 - INFO - COMMIT
+2025-07-04T18:58:25.119280+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:58:25.127223+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-07-04T18:58:25.128138+07:00 - INFO - [generated in 0.00114s] ('imajinasi.art@example.com',)
+2025-07-04T18:58:25.144907+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-07-04T18:58:25.145897+07:00 - INFO - [generated in 0.00120s] (30,)
+2025-07-04T18:58:25.379263+07:00 - INFO - ROLLBACK
+2025-07-04T18:58:36.197682+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:58:36.199377+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-07-04T18:58:36.199980+07:00 - INFO - [cached since 11.07s ago] ('imajinasi.art@example.com',)
+2025-07-04T18:58:36.203874+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-07-04T18:58:36.204618+07:00 - INFO - [cached since 11.06s ago] (30,)
+2025-07-04T18:58:36.211037+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement
+2025-07-04T18:58:36.211940+07:00 - INFO - [generated in 0.00093s] ()
+2025-07-04T18:58:36.218614+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER, $6::INTEGER, $7::INTEGER, $8::INTEGER, $9::INTEGER, $10::INTEGER, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::INTEGER, $15::INTEGER, $16::INTEGER, $17::INTEGER, $18::INTEGER, $19::INTEGER, $20::INTEGER, $21::INTEGER, $22::INTEGER, $23::INTEGER, $24::INTEGER, $25::INTEGER, $26::INTEGER, $27::INTEGER, $28::INTEGER, $29::INTEGER, $30::INTEGER)
+2025-07-04T18:58:36.219370+07:00 - INFO - [generated in 0.00104s] (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 26, 28, 30)
+2025-07-04T18:58:44.506762+07:00 - INFO - ROLLBACK
+2025-07-04T18:58:44.511078+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:58:44.512071+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-07-04T18:58:44.512603+07:00 - INFO - [cached since 19.36s ago] ('imajinasi.art@example.com',)
+2025-07-04T18:58:44.517097+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-07-04T18:58:44.517915+07:00 - INFO - [cached since 19.35s ago] (30,)
+2025-07-04T18:58:44.521270+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement
+2025-07-04T18:58:44.522290+07:00 - INFO - [cached since 8.284s ago] ()
+2025-07-04T18:58:44.525961+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER, $6::INTEGER, $7::INTEGER, $8::INTEGER, $9::INTEGER, $10::INTEGER, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::INTEGER, $15::INTEGER, $16::INTEGER, $17::INTEGER, $18::INTEGER, $19::INTEGER, $20::INTEGER, $21::INTEGER, $22::INTEGER, $23::INTEGER, $24::INTEGER, $25::INTEGER, $26::INTEGER, $27::INTEGER, $28::INTEGER, $29::INTEGER, $30::INTEGER)
+2025-07-04T18:58:44.526733+07:00 - INFO - [cached since 8.282s ago] (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 26, 28, 30)
+2025-07-04T18:58:44.555743+07:00 - INFO - ROLLBACK
+2025-07-04T18:58:46.538654+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:58:46.540909+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-07-04T18:58:46.542066+07:00 - INFO - [cached since 21.39s ago] ('imajinasi.art@example.com',)
+2025-07-04T18:58:46.550440+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-07-04T18:58:46.553050+07:00 - INFO - [cached since 21.38s ago] (30,)
+2025-07-04T18:58:46.556906+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement
+2025-07-04T18:58:46.557669+07:00 - INFO - [cached since 10.32s ago] ()
+2025-07-04T18:58:46.561812+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER, $6::INTEGER, $7::INTEGER, $8::INTEGER, $9::INTEGER, $10::INTEGER, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::INTEGER, $15::INTEGER, $16::INTEGER, $17::INTEGER, $18::INTEGER, $19::INTEGER, $20::INTEGER, $21::INTEGER, $22::INTEGER, $23::INTEGER, $24::INTEGER, $25::INTEGER, $26::INTEGER, $27::INTEGER, $28::INTEGER, $29::INTEGER, $30::INTEGER)
+2025-07-04T18:58:46.562422+07:00 - INFO - [cached since 10.32s ago] (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 26, 28, 30)
+2025-07-04T18:58:46.597829+07:00 - INFO - ROLLBACK
+2025-07-04T18:58:50.748925+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:58:50.750263+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-07-04T18:58:50.750682+07:00 - INFO - [cached since 25.6s ago] ('imajinasi.art@example.com',)
+2025-07-04T18:58:50.753499+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-07-04T18:58:50.754113+07:00 - INFO - [cached since 25.58s ago] (30,)
+2025-07-04T18:58:50.756776+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement
+2025-07-04T18:58:50.757715+07:00 - INFO - [cached since 14.52s ago] ()
+2025-07-04T18:58:50.768632+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER, $6::INTEGER, $7::INTEGER, $8::INTEGER, $9::INTEGER, $10::INTEGER, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::INTEGER, $15::INTEGER, $16::INTEGER, $17::INTEGER, $18::INTEGER, $19::INTEGER, $20::INTEGER, $21::INTEGER, $22::INTEGER, $23::INTEGER, $24::INTEGER, $25::INTEGER, $26::INTEGER, $27::INTEGER, $28::INTEGER, $29::INTEGER, $30::INTEGER)
+2025-07-04T18:58:50.773039+07:00 - INFO - [cached since 14.53s ago] (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 26, 28, 30)
+2025-07-04T18:58:50.800446+07:00 - INFO - ROLLBACK
+2025-07-04T18:58:59.247318+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:58:59.248785+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-07-04T18:58:59.249677+07:00 - INFO - [cached since 34.1s ago] ('imajinasi.art@example.com',)
+2025-07-04T18:58:59.253096+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-07-04T18:58:59.254064+07:00 - INFO - [cached since 34.08s ago] (30,)
+2025-07-04T18:58:59.256915+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement
+2025-07-04T18:58:59.257765+07:00 - INFO - [cached since 23.02s ago] ()
+2025-07-04T18:58:59.261751+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER, $6::INTEGER, $7::INTEGER, $8::INTEGER, $9::INTEGER, $10::INTEGER, $11::INTEGER, $12::INTEGER, $13::INTEGER, $14::INTEGER, $15::INTEGER, $16::INTEGER, $17::INTEGER, $18::INTEGER, $19::INTEGER, $20::INTEGER, $21::INTEGER, $22::INTEGER, $23::INTEGER, $24::INTEGER, $25::INTEGER, $26::INTEGER, $27::INTEGER, $28::INTEGER, $29::INTEGER, $30::INTEGER)
+2025-07-04T18:58:59.262862+07:00 - INFO - [cached since 23.02s ago] (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 27, 29, 26, 28, 30)
+2025-07-04T18:58:59.292863+07:00 - INFO - ROLLBACK
+2025-07-04T18:59:06.121079+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:59:06.122608+07:00 - INFO - 
+            SELECT 
+                date_trunc('month', due_date) AS month,
+                SUM(price) AS total_price
+            FROM requestprocurement
+            GROUP BY month
+            ORDER BY month
+        
+2025-07-04T18:59:06.123287+07:00 - INFO - [generated in 0.00083s] ()
+2025-07-04T18:59:06.172577+07:00 - INFO - ROLLBACK
+2025-07-04T18:59:08.353826+07:00 - INFO - BEGIN (implicit)
+2025-07-04T18:59:08.355628+07:00 - INFO - 
+            SELECT 
+                date_trunc('month', due_date) AS month,
+                SUM(price) AS total_price
+            FROM requestprocurement
+            GROUP BY month
+            ORDER BY month
+        
+2025-07-04T18:59:08.356516+07:00 - INFO - [cached since 2.234s ago] ()
+2025-07-04T18:59:08.376963+07:00 - INFO - ROLLBACK

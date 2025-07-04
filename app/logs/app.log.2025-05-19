@@ -1,0 +1,821 @@
+2025-05-20T14:13:46.617981+07:00 - INFO - {"event": "Starting the application", "logger": "logs.log_config", "level": "info", "timestamp": "2025-05-20T14:13:46.617896+07:00"}
+2025-05-20T14:13:46.782377+07:00 - INFO - select pg_catalog.version()
+2025-05-20T14:13:46.784446+07:00 - INFO - [raw sql] ()
+2025-05-20T14:13:46.787812+07:00 - INFO - select current_schema()
+2025-05-20T14:13:46.788354+07:00 - INFO - [raw sql] ()
+2025-05-20T14:13:46.791498+07:00 - INFO - show standard_conforming_strings
+2025-05-20T14:13:46.792044+07:00 - INFO - [raw sql] ()
+2025-05-20T14:13:46.794245+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:13:46.799299+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-20T14:13:46.799933+07:00 - INFO - [generated in 0.00079s] ('vendoraccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-20T14:13:46.808536+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-20T14:13:46.809249+07:00 - INFO - [cached since 0.0101s ago] ('vendortag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-20T14:13:46.811234+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-20T14:13:46.811882+07:00 - INFO - [cached since 0.01274s ago] ('requestprocurement', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-20T14:13:46.813454+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-20T14:13:46.814002+07:00 - INFO - [cached since 0.01487s ago] ('requesttag', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-20T14:13:46.815264+07:00 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = $1::VARCHAR AND pg_catalog.pg_class.relkind = ANY (ARRAY[$2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != $7::VARCHAR
+2025-05-20T14:13:46.815895+07:00 - INFO - [cached since 0.01677s ago] ('adminaccount', 'r', 'p', 'f', 'v', 'm', 'pg_catalog')
+2025-05-20T14:13:46.817599+07:00 - INFO - COMMIT
+2025-05-20T14:13:46.950575+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:13:46.955601+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:13:46.956331+07:00 - INFO - [generated in 0.00079s] ('neuralsight@example.com',)
+2025-05-20T14:13:46.962113+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-05-20T14:13:46.962879+07:00 - INFO - [generated in 0.00088s] (132,)
+2025-05-20T14:13:47.194077+07:00 - INFO - ROLLBACK
+2025-05-20T14:13:50.941675+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:13:50.944737+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:13:50.945226+07:00 - INFO - [generated in 0.00056s] (5, 10)
+2025-05-20T14:13:50.949713+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:13:50.950377+07:00 - INFO - [generated in 0.00089s] (39, 38, 37, 36, 35)
+2025-05-20T14:13:50.954992+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:13:50.955640+07:00 - INFO - [generated in 0.00071s] ()
+2025-05-20T14:13:50.958015+07:00 - INFO - ROLLBACK
+2025-05-20T14:13:52.209364+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:13:52.210145+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:13:52.210555+07:00 - INFO - [cached since 1.266s ago] (5, 40)
+2025-05-20T14:13:52.212678+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:13:52.213260+07:00 - INFO - [cached since 1.264s ago] (9, 8, 7, 6, 5)
+2025-05-20T14:13:52.215854+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:13:52.216497+07:00 - INFO - [cached since 1.262s ago] ()
+2025-05-20T14:13:52.218506+07:00 - INFO - ROLLBACK
+2025-05-20T14:14:04.913311+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:14:04.914474+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:14:04.915213+07:00 - INFO - [cached since 13.97s ago] (5, 0)
+2025-05-20T14:14:04.925050+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:14:04.925919+07:00 - INFO - [cached since 13.98s ago] (49, 48, 47, 46, 45)
+2025-05-20T14:14:04.930512+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:14:04.931101+07:00 - INFO - [cached since 13.98s ago] ()
+2025-05-20T14:14:04.935320+07:00 - INFO - ROLLBACK
+2025-05-20T14:14:04.968258+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:14:04.969372+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:14:04.970029+07:00 - INFO - [cached since 14.03s ago] (5, 0)
+2025-05-20T14:14:04.974540+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:14:04.975367+07:00 - INFO - [cached since 14.03s ago] (49, 48, 47, 46, 45)
+2025-05-20T14:14:04.978453+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:14:04.979206+07:00 - INFO - [cached since 14.02s ago] ()
+2025-05-20T14:14:04.981975+07:00 - INFO - ROLLBACK
+2025-05-20T14:49:45.830985+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:49:45.834514+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:49:45.835231+07:00 - INFO - [cached since 2155s ago] (5, 10)
+2025-05-20T14:49:45.839752+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:49:45.840307+07:00 - INFO - [cached since 2155s ago] (39, 38, 37, 36, 35)
+2025-05-20T14:49:45.843313+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:49:45.843983+07:00 - INFO - [cached since 2155s ago] ()
+2025-05-20T14:49:45.846876+07:00 - INFO - ROLLBACK
+2025-05-20T14:51:37.729941+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:51:37.731517+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:51:37.732012+07:00 - INFO - [cached since 2267s ago] (5, 20)
+2025-05-20T14:51:37.734793+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:51:37.735256+07:00 - INFO - [cached since 2267s ago] (29, 28, 27, 26, 25)
+2025-05-20T14:51:37.738902+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:51:37.740015+07:00 - INFO - [cached since 2267s ago] ()
+2025-05-20T14:51:37.742275+07:00 - INFO - ROLLBACK
+2025-05-20T14:51:38.848038+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:51:38.848820+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:51:38.849225+07:00 - INFO - [cached since 2268s ago] (5, 40)
+2025-05-20T14:51:38.851273+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:51:38.851592+07:00 - INFO - [cached since 2268s ago] (9, 8, 7, 6, 5)
+2025-05-20T14:51:38.853438+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:51:38.854563+07:00 - INFO - [cached since 2268s ago] ()
+2025-05-20T14:51:38.857606+07:00 - INFO - ROLLBACK
+2025-05-20T14:51:41.107508+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:51:41.108444+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T14:51:41.108931+07:00 - INFO - [cached since 2270s ago] (5, 0)
+2025-05-20T14:51:41.111191+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T14:51:41.111626+07:00 - INFO - [cached since 2270s ago] (49, 48, 47, 46, 45)
+2025-05-20T14:51:41.113441+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T14:51:41.113845+07:00 - INFO - [cached since 2270s ago] ()
+2025-05-20T14:51:41.115523+07:00 - INFO - ROLLBACK
+2025-05-20T14:56:55.314708+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:55.326596+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:56:55.327689+07:00 - INFO - [generated in 0.00197s] ('lexasemantik@example.com',)
+2025-05-20T14:56:55.540431+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T14:56:55.541318+07:00 - INFO - [generated in 0.00097s] ('PT LexaSemantik', 'kami mengembangkan sistem klasifikasi teks hukum dan summarization peraturan perundang-undangan. nlp pipeline kami mencakup named entity recognition dan argument mining.\n\nwe develop legal text classifiers and regulation summarizers. our nlp pipeline includes ner and argument mining.', 'Yogyakarta', 'lexasemantik@example.com', '$2b$12$cL3N6TPDSGLDUBi32G92be8HSe4fyaxg.x3019tzRTbQSC/9OYoAq', datetime.datetime(2025, 5, 20, 7, 56, 55, 302831), datetime.datetime(2025, 5, 20, 7, 56, 55, 302831))
+2025-05-20T14:56:55.549718+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4), ($11::VARCHAR, $12::VARCHAR, 5)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T14:56:55.550377+07:00 - INFO - [generated in 0.00031s (insertmanyvalues) 1/1 (ordered)] ('lexasemantik@example.com', 'ai', 'lexasemantik@example.com', 'nlp', 'lexasemantik@example.com', 'legal tech', 'lexasemantik@example.com', 'text classification', 'lexasemantik@example.com', 'summarization', 'lexasemantik@example.com', 'argument mining')
+2025-05-20T14:56:55.554675+07:00 - INFO - COMMIT
+2025-05-20T14:56:55.559496+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:55.562031+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T14:56:55.562588+07:00 - INFO - [generated in 0.00061s] (201,)
+2025-05-20T14:56:55.569926+07:00 - INFO - ROLLBACK
+2025-05-20T14:56:55.832941+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:55.833951+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:56:55.834375+07:00 - INFO - [cached since 0.5089s ago] ('neurocast@example.com',)
+2025-05-20T14:56:56.041595+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T14:56:56.042203+07:00 - INFO - [cached since 0.502s ago] ('PT NeuroCastAI', 'layanan kami menyediakan klasifikasi audio dan pengenalan emosi dari suara untuk aplikasi seperti surveilans, kesehatan mental, dan call center.\n\nwe provide audio classification and emotion recognition from speech for use in surveillance, mental health, and call centers.', 'Jakarta', 'neurocast@example.com', '$2b$12$ruiuPUMU8iLpp/abksZ2b.vjNyOSOG6mGeXwuMFYzFqt7zN7wEK6m', datetime.datetime(2025, 5, 20, 7, 56, 55, 832551), datetime.datetime(2025, 5, 20, 7, 56, 55, 832551))
+2025-05-20T14:56:56.043771+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4), ($11::VARCHAR, $12::VARCHAR, 5)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T14:56:56.044097+07:00 - INFO - [cached since 0.4961s ago (insertmanyvalues) 1/1 (ordered)] ('neurocast@example.com', 'ai', 'neurocast@example.com', 'audio', 'neurocast@example.com', 'emotion recognition', 'neurocast@example.com', 'speech', 'neurocast@example.com', 'classification', 'neurocast@example.com', 'health tech')
+2025-05-20T14:56:56.045660+07:00 - INFO - COMMIT
+2025-05-20T14:56:56.048265+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:56.049123+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T14:56:56.049626+07:00 - INFO - [cached since 0.4876s ago] (203,)
+2025-05-20T14:56:56.051536+07:00 - INFO - ROLLBACK
+2025-05-20T14:56:56.273588+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:56.274446+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:56:56.274936+07:00 - INFO - [cached since 0.9494s ago] ('medivision@example.com',)
+2025-05-20T14:56:56.469414+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T14:56:56.470297+07:00 - INFO - [cached since 0.9301s ago] ('PT MediVision AI', 'mendeteksi kelainan medis dari citra radiologi dan ultrasound menggunakan cnn dan vision transformers. juga mengembangkan dataset lokal untuk pelatih ... (3 characters truncated) ... model.\n\ndetecting medical anomalies from radiology and ultrasound using cnn and vision transformers. also building localized datasets for training.', 'Denpasar', 'medivision@example.com', '$2b$12$sBeHGLTixJBkWZjpxRpeq.VTvx7vjLqUkJi4Dmziozq5JjrcrODbS', datetime.datetime(2025, 5, 20, 7, 56, 56, 273133), datetime.datetime(2025, 5, 20, 7, 56, 56, 273133))
+2025-05-20T14:56:56.472194+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4), ($11::VARCHAR, $12::VARCHAR, 5)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T14:56:56.472867+07:00 - INFO - [cached since 0.9246s ago (insertmanyvalues) 1/1 (ordered)] ('medivision@example.com', 'ai', 'medivision@example.com', 'medical imaging', 'medivision@example.com', 'computer vision', 'medivision@example.com', 'cnn', 'medivision@example.com', 'transformer', 'medivision@example.com', 'healthcare')
+2025-05-20T14:56:56.474734+07:00 - INFO - COMMIT
+2025-05-20T14:56:56.478942+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:56.479649+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T14:56:56.480029+07:00 - INFO - [cached since 0.9181s ago] (205,)
+2025-05-20T14:56:56.481629+07:00 - INFO - ROLLBACK
+2025-05-20T14:56:56.703776+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:56.704443+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:56:56.704839+07:00 - INFO - [cached since 1.379s ago] ('artifisher@example.com',)
+2025-05-20T14:56:56.894679+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T14:56:56.895469+07:00 - INFO - [cached since 1.355s ago] ('PT ArtiFisher AI', 'membuat sistem prediksi hasil tangkapan laut berbasis pengamatan satelit dan data cuaca, menggunakan spatio-temporal modeling dan random forest.\n\nwe build sea catch prediction systems using satellite observation and weather data, with spatio-temporal modeling and random forests.', 'Padang', 'artifisher@example.com', '$2b$12$p4yx5IQZftKwjRI51Axjke2aOgia9CaS3iVBdKGSqmRDv61T2HR7e', datetime.datetime(2025, 5, 20, 7, 56, 56, 703431), datetime.datetime(2025, 5, 20, 7, 56, 56, 703431))
+2025-05-20T14:56:56.897198+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4), ($11::VARCHAR, $12::VARCHAR, 5)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T14:56:56.897717+07:00 - INFO - [cached since 1.35s ago (insertmanyvalues) 1/1 (ordered)] ('artifisher@example.com', 'ai', 'artifisher@example.com', 'fisheries', 'artifisher@example.com', 'spatio-temporal', 'artifisher@example.com', 'forecasting', 'artifisher@example.com', 'satellite data', 'artifisher@example.com', 'machine learning')
+2025-05-20T14:56:56.899137+07:00 - INFO - COMMIT
+2025-05-20T14:56:56.908612+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:56.909683+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T14:56:56.910206+07:00 - INFO - [cached since 1.348s ago] (207,)
+2025-05-20T14:56:56.911821+07:00 - INFO - ROLLBACK
+2025-05-20T14:56:57.156555+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:57.158441+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:56:57.159410+07:00 - INFO - [cached since 1.834s ago] ('jualmaks@example.com',)
+2025-05-20T14:56:57.383332+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T14:56:57.384038+07:00 - INFO - [cached since 1.844s ago] ('CV Strategi JualMaks', 'kami agensi marketing dan sales yang bantu brand lokal skalakan distribusi lewat kampanye offline dan strategi brand awareness berbasis event.\n\nwe’re a marketing and sales agency helping local brands scale distribution via offline campaigns and event-based brand awareness strategies.', 'Surabaya', 'jualmaks@example.com', '$2b$12$gkV.9lMWVbBUXA7YgLUpdu97p/jEs0r.d7lkZYkxy566hLCbhQhS2', datetime.datetime(2025, 5, 20, 7, 56, 57, 156002), datetime.datetime(2025, 5, 20, 7, 56, 57, 156002))
+2025-05-20T14:56:57.385869+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T14:56:57.386257+07:00 - INFO - [cached since 1.838s ago (insertmanyvalues) 1/1 (ordered)] ('jualmaks@example.com', 'sales', 'jualmaks@example.com', 'marketing', 'jualmaks@example.com', 'brand strategy', 'jualmaks@example.com', 'offline campaign', 'jualmaks@example.com', 'business')
+2025-05-20T14:56:57.388043+07:00 - INFO - COMMIT
+2025-05-20T14:56:57.390813+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:57.391774+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T14:56:57.392381+07:00 - INFO - [cached since 1.83s ago] (209,)
+2025-05-20T14:56:57.394479+07:00 - INFO - ROLLBACK
+2025-05-20T14:56:57.642340+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:57.643226+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T14:56:57.643741+07:00 - INFO - [cached since 2.318s ago] ('smartedge@example.com',)
+2025-05-20T14:56:57.889675+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T14:56:57.890373+07:00 - INFO - [cached since 2.35s ago] ('CV SmartEdge IoT', 'spesialisasi dalam edge computing device untuk industri 4.0. produk kami termasuk gateway IoT low-power dan modul sensor AI untuk predictive maintenance.\n\nwe specialize in edge computing devices for industry 4.0, offering low-power IoT gateways and AI sensor modules for predictive maintenance.', 'Bandung', 'smartedge@example.com', '$2b$12$jQMB4JFEh42u.yzIG6o5aeRJAHPyusk5TlpruNkKubqUAhSv/b2US', datetime.datetime(2025, 5, 20, 7, 56, 57, 641690), datetime.datetime(2025, 5, 20, 7, 56, 57, 641690))
+2025-05-20T14:56:57.892293+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4), ($11::VARCHAR, $12::VARCHAR, 5)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T14:56:57.892820+07:00 - INFO - [cached since 2.345s ago (insertmanyvalues) 1/1 (ordered)] ('smartedge@example.com', 'iot', 'smartedge@example.com', 'edge computing', 'smartedge@example.com', 'industry 4.0', 'smartedge@example.com', 'predictive maintenance', 'smartedge@example.com', 'hardware', 'smartedge@example.com', 'sensors')
+2025-05-20T14:56:57.894351+07:00 - INFO - COMMIT
+2025-05-20T14:56:57.896905+07:00 - INFO - BEGIN (implicit)
+2025-05-20T14:56:57.897598+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T14:56:57.898018+07:00 - INFO - [cached since 2.336s ago] (211,)
+2025-05-20T14:56:57.900039+07:00 - INFO - ROLLBACK
+2025-05-20T15:04:49.861176+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.860377+07:00"}
+2025-05-20T15:04:49.879078+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.879014+07:00"}
+2025-05-20T15:04:49.889295+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.889165+07:00"}
+2025-05-20T15:04:49.906331+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.906096+07:00"}
+2025-05-20T15:04:49.921611+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.921536+07:00"}
+2025-05-20T15:04:49.935801+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.935741+07:00"}
+2025-05-20T15:04:49.949133+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.949069+07:00"}
+2025-05-20T15:04:49.962199+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.962138+07:00"}
+2025-05-20T15:04:49.974432+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.974341+07:00"}
+2025-05-20T15:04:49.987437+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:49.987312+07:00"}
+2025-05-20T15:04:50.001745+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:50.001661+07:00"}
+2025-05-20T15:04:50.016840+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:50.016778+07:00"}
+2025-05-20T15:04:50.032310+07:00 - ERROR - {"event": [{"loc": ["body", "name"], "message": "Field required", "type": "missing"}, {"loc": ["body", "email"], "message": "Field required", "type": "missing"}, {"loc": ["body", "password"], "message": "Field required", "type": "missing"}], "logger": "main", "level": "error", "timestamp": "2025-05-20T15:04:50.032226+07:00"}
+2025-05-20T15:05:38.753750+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.762231+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.762886+07:00 - INFO - [generated in 0.00118s] ('Medical Image Analysis System', 'ai', 'Pembangunan sistem deteksi kelainan paru-paru dari citra X-ray menggunakan deep learning.', 'Model CNN/ViT dengan akurasi >92%, dataset lokal minimal 10.000 gambar, dan explainability features', Decimal('180000000.0'), 'Surabaya', datetime.datetime(2025, 9, 5, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 747363), None)
+2025-05-20T15:05:38.772063+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.772736+07:00 - INFO - [generated in 0.00029s (insertmanyvalues) 1/1 (ordered)] (51, 'medical ai', 51, 'computer vision', 51, 'healthcare', 51, 'x-ray', 51, 'deep learning')
+2025-05-20T15:05:38.775640+07:00 - INFO - COMMIT
+2025-05-20T15:05:38.807472+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.808390+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.808785+07:00 - INFO - [cached since 0.04714s ago] ('Document Processing Automation', 'ai', 'Sistem OCR cerdas untuk ekstraksi data dari faktur dan dokumen legal dengan validasi otomatis', 'Akurasi >95% untuk dokumen scan low-quality, post-processing rules engine, dan integrasi dengan SAP', Decimal('150000000.0'), 'Tangerang', datetime.datetime(2025, 8, 20, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 806948), None)
+2025-05-20T15:05:38.813113+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.813748+07:00 - INFO - [cached since 0.04147s ago (insertmanyvalues) 1/1 (ordered)] (53, 'ocr', 53, 'document ai', 53, 'data extraction', 53, 'automation', 53, 'enterprise')
+2025-05-20T15:05:38.816532+07:00 - INFO - COMMIT
+2025-05-20T15:05:38.843056+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.844444+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.844852+07:00 - INFO - [cached since 0.08321s ago] ('Social Media Sentiment Analyzer', 'ai', 'Alat monitoring sentimen brand secara real-time dari Twitter, Instagram, dan TikTok', 'Support analisis slang Indonesia, trending topic detection, dan API export ke Google Sheets', Decimal('75000000.0'), 'Jakarta', datetime.datetime(2025, 8, 1, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 842535), None)
+2025-05-20T15:05:38.847483+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.847994+07:00 - INFO - [cached since 0.07567s ago (insertmanyvalues) 1/1 (ordered)] (55, 'sentiment analysis', 55, 'social media', 55, 'real-time', 55, 'brand monitoring', 55, 'nlp')
+2025-05-20T15:05:38.849598+07:00 - INFO - COMMIT
+2025-05-20T15:05:38.876458+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.877192+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.877605+07:00 - INFO - [cached since 0.116s ago] ('Agricultural Yield Prediction', 'ai', 'Model prediksi hasil panen padi berdasarkan data satelit, cuaca, dan kondisi tanah', 'Akurasi >85% untuk varietas lokal Jawa, mobile-friendly dashboard untuk petani', Decimal('110000000.0'), 'Yogyakarta', datetime.datetime(2025, 9, 8, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 876038), None)
+2025-05-20T15:05:38.880211+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.880722+07:00 - INFO - [cached since 0.1086s ago (insertmanyvalues) 1/1 (ordered)] (57, 'agritech', 57, 'satellite imagery', 57, 'forecasting', 57, 'precision farming', 57, 'machine learning')
+2025-05-20T15:05:38.882158+07:00 - INFO - COMMIT
+2025-05-20T15:05:38.907701+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.908565+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.909000+07:00 - INFO - [cached since 0.1473s ago] ('Personalized Learning Recommender', 'ai', 'Sistem rekomendasi konten edukasi berbasis kemampuan dan gaya belajar siswa', 'Cold-start solution untuk user baru, multi-platform support, dan tracking progress', Decimal('125000000.0'), 'Depok', datetime.datetime(2025, 9, 15, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 907017), None)
+2025-05-20T15:05:38.911857+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.912604+07:00 - INFO - [cached since 0.1402s ago (insertmanyvalues) 1/1 (ordered)] (59, 'edtech', 59, 'recommender system', 59, 'personalization', 59, 'adaptive learning', 59, 'education')
+2025-05-20T15:05:38.914812+07:00 - INFO - COMMIT
+2025-05-20T15:05:38.943815+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.944746+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.945427+07:00 - INFO - [cached since 0.1838s ago] ('Trade Marketing Program', 'sales', 'Pengembangan program merchandising dan POS materials untuk jaringan retail modern', 'Desain sesuai guideline brand, distribusi ke 500+ outlet, dan monitoring bulanan', Decimal('180000000.0'), 'Jabodetabek', datetime.datetime(2025, 7, 25, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 943216), None)
+2025-05-20T15:05:38.950349+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.951089+07:00 - INFO - [cached since 0.1787s ago (insertmanyvalues) 1/1 (ordered)] (61, 'trade marketing', 61, 'merchandising', 61, 'retail', 61, 'posm', 61, 'sales')
+2025-05-20T15:05:38.953503+07:00 - INFO - COMMIT
+2025-05-20T15:05:38.988206+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:38.989793+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:38.990694+07:00 - INFO - [cached since 0.229s ago] ('Loyalty Program Redesign', 'marketing', 'Revitalisasi program loyalitas dengan mekanisme tiered rewards dan personalisasi', 'Desain program berbasis data existing, simulasi ROI, dan implementasi di 100+ gerai', Decimal('150000000.0'), 'Jakarta', datetime.datetime(2025, 8, 5, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 38, 987174), None)
+2025-05-20T15:05:38.994646+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:38.996279+07:00 - INFO - [cached since 0.2229s ago (insertmanyvalues) 1/1 (ordered)] (63, 'loyalty program', 63, 'customer retention', 63, 'retail', 63, 'membership', 63, 'reward system')
+2025-05-20T15:05:39.001107+07:00 - INFO - COMMIT
+2025-05-20T15:05:39.038945+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:39.041722+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:39.042377+07:00 - INFO - [cached since 0.2807s ago] ('OOH Media Placement', 'advertising', 'Pemasangan iklan billboard dan transit media di 15 lokasi strategis Jabodetabek', 'Lokasi premium dengan traffic >100k/day, desain kreatif, dan laporan footfall analysis', Decimal('420000000.0'), 'Jabodetabek', datetime.datetime(2025, 8, 18, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 39, 38154), None)
+2025-05-20T15:05:39.045658+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:39.046234+07:00 - INFO - [cached since 0.2739s ago (insertmanyvalues) 1/1 (ordered)] (65, 'ooh', 65, 'billboard', 65, 'outdoor ads', 65, 'branding', 65, 'media placement')
+2025-05-20T15:05:39.047981+07:00 - INFO - COMMIT
+2025-05-20T15:05:39.080170+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:39.080958+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:39.081452+07:00 - INFO - [cached since 0.3198s ago] ('Retail Audit Nationwide', 'sales', 'Audit harga dan availability produk di 2000 titik retail tradisional', 'Tim surveyor tersertifikasi, mobile data collection, dan analisis kompetitif', Decimal('290000000.0'), 'Indonesia', datetime.datetime(2025, 9, 10, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 39, 79716), None)
+2025-05-20T15:05:39.084131+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:39.084570+07:00 - INFO - [cached since 0.3125s ago (insertmanyvalues) 1/1 (ordered)] (67, 'retail audit', 67, 'market intelligence', 67, 'pricing', 67, 'distribution', 67, 'field team')
+2025-05-20T15:05:39.088292+07:00 - INFO - COMMIT
+2025-05-20T15:05:39.113193+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:39.114114+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:39.114591+07:00 - INFO - [cached since 0.3529s ago] ('Brand Identity Redesign', 'branding', 'Penyegaran identitas merek termasuk logo, brand book, dan aplikasi visual', 'Portfolio rebranding B2B, workshop stakeholder, dan guideline multichannel', Decimal('85000000.0'), 'Jakarta', datetime.datetime(2025, 7, 31, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 39, 112726), None)
+2025-05-20T15:05:39.117555+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:39.118156+07:00 - INFO - [cached since 0.3459s ago (insertmanyvalues) 1/1 (ordered)] (69, 'branding', 69, 'logo design', 69, 'visual identity', 69, 'rebranding', 69, 'creative')
+2025-05-20T15:05:39.120662+07:00 - INFO - COMMIT
+2025-05-20T15:05:39.150035+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:39.150934+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:39.151369+07:00 - INFO - [cached since 0.3897s ago] ('3D Printing Prototyping Facility', 'hardware', 'Penyediaan jasa rapid prototyping untuk komponen industri dengan metal 3D printing', 'SLA dan DMLS capability, toleransi ±0.1mm, dan material variety', Decimal('210000000.0'), 'Bandung', datetime.datetime(2025, 9, 8, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 39, 149475), None)
+2025-05-20T15:05:39.155602+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:39.156289+07:00 - INFO - [cached since 0.3839s ago (insertmanyvalues) 1/1 (ordered)] (71, '3d printing', 71, 'rapid prototyping', 71, 'additive manufacturing', 71, 'industrial', 71, 'design')
+2025-05-20T15:05:39.158093+07:00 - INFO - COMMIT
+2025-05-20T15:05:39.183490+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:39.184350+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:05:39.184854+07:00 - INFO - [cached since 0.4232s ago] ('Electric Vehicle Charging Stations', 'energy', 'Pemasangan 20 unit charging station kendaraan listrik di area perkantoran', 'DC fast charging, payment system integration, dan remote monitoring', Decimal('500000000.0'), 'Jakarta', datetime.datetime(2025, 10, 5, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 5, 39, 182948), None)
+2025-05-20T15:05:39.189304+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:05:39.190822+07:00 - INFO - [cached since 0.4176s ago (insertmanyvalues) 1/1 (ordered)] (73, 'ev', 73, 'charging', 73, 'sustainability', 73, 'smart energy', 73, 'infrastructure')
+2025-05-20T15:05:39.192797+07:00 - INFO - COMMIT
+2025-05-20T15:05:45.225319+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:45.230912+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T15:05:45.232929+07:00 - INFO - [cached since 3114s ago] (5, 0)
+2025-05-20T15:05:45.239061+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T15:05:45.241789+07:00 - INFO - [cached since 3114s ago] (74, 73, 72, 71, 70)
+2025-05-20T15:05:45.247875+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T15:05:45.248594+07:00 - INFO - [cached since 3114s ago] ()
+2025-05-20T15:05:45.252237+07:00 - INFO - ROLLBACK
+2025-05-20T15:05:48.060071+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:48.061092+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T15:05:48.061520+07:00 - INFO - [cached since 3117s ago] (5, 50)
+2025-05-20T15:05:48.063836+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T15:05:48.064258+07:00 - INFO - [cached since 3117s ago] (24, 23, 22, 21, 20)
+2025-05-20T15:05:48.066081+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T15:05:48.066459+07:00 - INFO - [cached since 3117s ago] ()
+2025-05-20T15:05:48.068009+07:00 - INFO - ROLLBACK
+2025-05-20T15:05:49.993440+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:49.994422+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T15:05:49.994875+07:00 - INFO - [cached since 3119s ago] (5, 20)
+2025-05-20T15:05:49.996739+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T15:05:49.997155+07:00 - INFO - [cached since 3119s ago] (54, 53, 52, 51, 50)
+2025-05-20T15:05:50.000651+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T15:05:50.001047+07:00 - INFO - [cached since 3119s ago] ()
+2025-05-20T15:05:50.002744+07:00 - INFO - ROLLBACK
+2025-05-20T15:05:52.077721+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:52.078637+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T15:05:52.079226+07:00 - INFO - [cached since 3121s ago] (5, 15)
+2025-05-20T15:05:52.081211+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T15:05:52.081581+07:00 - INFO - [cached since 3121s ago] (59, 58, 57, 56, 55)
+2025-05-20T15:05:52.083402+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T15:05:52.083732+07:00 - INFO - [cached since 3121s ago] ()
+2025-05-20T15:05:52.085475+07:00 - INFO - ROLLBACK
+2025-05-20T15:05:52.790986+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:05:52.792029+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T15:05:52.792560+07:00 - INFO - [cached since 3122s ago] (5, 30)
+2025-05-20T15:05:52.794728+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T15:05:52.795213+07:00 - INFO - [cached since 3122s ago] (44, 43, 42, 41, 40)
+2025-05-20T15:05:52.796834+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T15:05:52.797305+07:00 - INFO - [cached since 3122s ago] ()
+2025-05-20T15:05:52.798578+07:00 - INFO - ROLLBACK
+2025-05-20T15:06:07.129086+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:06:07.130585+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:06:07.131089+07:00 - INFO - [cached since 3140s ago] ('deeplang@example.com',)
+2025-05-20T15:06:07.137950+07:00 - INFO - SELECT vendoraccount_1.id AS vendoraccount_1_id, vendortag.id AS vendortag_id, vendortag.vendor_email AS vendortag_vendor_email, vendortag.tag_name AS vendortag_tag_name 
+FROM vendoraccount AS vendoraccount_1 JOIN vendortag ON vendoraccount_1.email = vendortag.vendor_email 
+WHERE vendoraccount_1.id IN ($1::INTEGER)
+2025-05-20T15:06:07.138706+07:00 - INFO - [cached since 3140s ago] (198,)
+2025-05-20T15:06:07.338882+07:00 - INFO - ROLLBACK
+2025-05-20T15:06:10.019260+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:06:10.020455+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T15:06:10.020962+07:00 - INFO - [cached since 3139s ago] (5, 15)
+2025-05-20T15:06:10.023580+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T15:06:10.024079+07:00 - INFO - [cached since 3139s ago] (59, 58, 57, 56, 55)
+2025-05-20T15:06:10.026299+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T15:06:10.026758+07:00 - INFO - [cached since 3139s ago] ()
+2025-05-20T15:06:10.028334+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:11.779378+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:11.781735+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:11.782884+07:00 - INFO - [cached since 1337s ago] ('iotcircuit@example.com',)
+2025-05-20T15:19:12.005609+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:12.006390+07:00 - INFO - [cached since 1337s ago] ('CV IoTCircuit', 'pengembang modul iot dan pcb custom untuk smart industry dan agriculture. fokus pada low-power design dan wireless communication untuk monitoring jar ... (18 characters truncated) ... pers of custom iot modules and pcbs for smart industry and agriculture. focused on low-power design and wireless communication for remote monitoring.', 'Surabaya', 'iotcircuit@example.com', '$2b$12$zNKw2ljU0DcSZ6mjiP6ELOhPckr3j63LhO6IpNnWkHxHcoIiJmZke', datetime.datetime(2025, 5, 20, 8, 19, 11, 777593), datetime.datetime(2025, 5, 20, 8, 19, 11, 777593))
+2025-05-20T15:19:12.009098+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:12.009845+07:00 - INFO - [cached since 1337s ago (insertmanyvalues) 1/1 (ordered)] ('iotcircuit@example.com', 'iot', 'iotcircuit@example.com', 'pcb', 'iotcircuit@example.com', 'hardware', 'iotcircuit@example.com', 'wireless', 'iotcircuit@example.com', 'smart agriculture')
+2025-05-20T15:19:12.013402+07:00 - INFO - COMMIT
+2025-05-20T15:19:12.017235+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:12.018597+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:12.019219+07:00 - INFO - [cached since 1337s ago] (213,)
+2025-05-20T15:19:12.022826+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:12.266374+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:12.267696+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:12.268636+07:00 - INFO - [cached since 1337s ago] ('sensortek@example.com',)
+2025-05-20T15:19:12.531606+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:12.532164+07:00 - INFO - [cached since 1337s ago] ('CV SensorTek', 'spesialis sensor industri dan sistem iot untuk smart factory dan predictive maintenance. produk kami kompatibel dengan protokol mqtt dan modbus.\n\nindustrial sensor specialists and iot systems for smart factories and predictive maintenance. our products support mqtt and modbus protocols.', 'Yogyakarta', 'sensortek@example.com', '$2b$12$g.h4gYyfS/a2s6Fi4PniguhJJ5mm/69ef4aqgK4gBxIZH9t9K4F4y', datetime.datetime(2025, 5, 20, 8, 19, 12, 265848), datetime.datetime(2025, 5, 20, 8, 19, 12, 265848))
+2025-05-20T15:19:12.533883+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:12.534680+07:00 - INFO - [cached since 1337s ago (insertmanyvalues) 1/1 (ordered)] ('sensortek@example.com', 'iot', 'sensortek@example.com', 'sensors', 'sensortek@example.com', 'predictive maintenance', 'sensortek@example.com', 'mqtt', 'sensortek@example.com', 'modbus')
+2025-05-20T15:19:12.537107+07:00 - INFO - COMMIT
+2025-05-20T15:19:12.540610+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:12.541665+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:12.542213+07:00 - INFO - [cached since 1337s ago] (215,)
+2025-05-20T15:19:12.543942+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:12.769719+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:12.770673+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:12.771076+07:00 - INFO - [cached since 1338s ago] ('conveyortech@example.com',)
+2025-05-20T15:19:12.972993+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:12.973886+07:00 - INFO - [cached since 1337s ago] ('CV ConveyorTech', 'pengembang sistem konveyor dan otomasi berbasis plc dan scada untuk logistik dan manufaktur. menawarkan solusi modular dan scalable.\n\nconveyor and automation system developer based on plc and scada for logistics and manufacturing. offers modular and scalable solutions.', 'Semarang', 'conveyortech@example.com', '$2b$12$klVJo1zj8sz6WjouBqzMUu2ybcdbCtlj6IR/kB71qgezc8c0Ape9i', datetime.datetime(2025, 5, 20, 8, 19, 12, 769291), datetime.datetime(2025, 5, 20, 8, 19, 12, 769291))
+2025-05-20T15:19:12.975637+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3), ($9::VARCHAR, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:12.976353+07:00 - INFO - [cached since 1337s ago (insertmanyvalues) 1/1 (ordered)] ('conveyortech@example.com', 'conveyor', 'conveyortech@example.com', 'plc', 'conveyortech@example.com', 'scada', 'conveyortech@example.com', 'automation', 'conveyortech@example.com', 'logistics')
+2025-05-20T15:19:12.977763+07:00 - INFO - COMMIT
+2025-05-20T15:19:12.980464+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:12.981215+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:12.981598+07:00 - INFO - [cached since 1337s ago] (217,)
+2025-05-20T15:19:12.983171+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:13.219272+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:13.220045+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:13.220449+07:00 - INFO - [cached since 1338s ago] ('contact@robohive.com',)
+2025-05-20T15:19:13.407972+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:13.408720+07:00 - INFO - [cached since 1338s ago] ('RoboHive Systems', 'Building swarm robotics platforms for warehouse automation with real-time coordination and AI pathfinding.', 'Jakarta', 'contact@robohive.com', '$2b$12$FiHpCJ97z14VGsKwRGVdue2E3XTf3buEER82rlCcte0hlbIp2b3gW', datetime.datetime(2025, 5, 20, 8, 19, 13, 218929), datetime.datetime(2025, 5, 20, 8, 19, 13, 218929))
+2025-05-20T15:19:13.410263+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:13.410649+07:00 - INFO - [cached since 1338s ago (insertmanyvalues) 1/1 (ordered)] ('contact@robohive.com', 'swarm robotics', 'contact@robohive.com', 'automation', 'contact@robohive.com', 'AI pathfinding', 'contact@robohive.com', 'warehouse')
+2025-05-20T15:19:13.412757+07:00 - INFO - COMMIT
+2025-05-20T15:19:13.415627+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:13.416290+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:13.416739+07:00 - INFO - [cached since 1338s ago] (219,)
+2025-05-20T15:19:13.418601+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:13.635669+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:13.636539+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:13.636998+07:00 - INFO - [cached since 1338s ago] ('support@automech.io',)
+2025-05-20T15:19:13.864700+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:13.865994+07:00 - INFO - [cached since 1338s ago] ('AutoMech Robotics', 'Specializing in collaborative industrial robots for assembly lines with advanced safety and precision controls.', 'Surabaya', 'support@automech.io', '$2b$12$A0Gh4VB4BAeygFrvmTmwjOhEkRMTVydvS5VRsGSdbGXdPH63i7vnW', datetime.datetime(2025, 5, 20, 8, 19, 13, 635142), datetime.datetime(2025, 5, 20, 8, 19, 13, 635142))
+2025-05-20T15:19:13.868464+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:13.869240+07:00 - INFO - [cached since 1338s ago (insertmanyvalues) 1/1 (ordered)] ('support@automech.io', 'collaborative robots', 'support@automech.io', 'industrial automation', 'support@automech.io', 'safety', 'support@automech.io', 'precision')
+2025-05-20T15:19:13.871593+07:00 - INFO - COMMIT
+2025-05-20T15:19:13.875707+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:13.876853+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:13.877473+07:00 - INFO - [cached since 1338s ago] (221,)
+2025-05-20T15:19:13.880198+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:14.154478+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:14.155208+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:14.155603+07:00 - INFO - [cached since 1339s ago] ('contact@robofarm.com',)
+2025-05-20T15:19:14.353133+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:14.354739+07:00 - INFO - [cached since 1339s ago] ('RoboFarm Solutions', 'Developing autonomous drones and robots for precision agriculture and crop monitoring using multispectral imaging.', 'Bali', 'contact@robofarm.com', '$2b$12$pVFbg5EGbM7aNlxkJ4BWAudYnRx8PW.5hMAu0TwFWVqOBxL/zjHi6', datetime.datetime(2025, 5, 20, 8, 19, 14, 154175), datetime.datetime(2025, 5, 20, 8, 19, 14, 154175))
+2025-05-20T15:19:14.357295+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:14.357895+07:00 - INFO - [cached since 1339s ago (insertmanyvalues) 1/1 (ordered)] ('contact@robofarm.com', 'autonomous drones', 'contact@robofarm.com', 'precision agriculture', 'contact@robofarm.com', 'robotics', 'contact@robofarm.com', 'multispectral imaging')
+2025-05-20T15:19:14.359707+07:00 - INFO - COMMIT
+2025-05-20T15:19:14.362830+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:14.363832+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:14.364223+07:00 - INFO - [cached since 1339s ago] (223,)
+2025-05-20T15:19:14.365832+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:14.603058+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:14.604074+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:14.604571+07:00 - INFO - [cached since 1339s ago] ('support@iotguardians.io',)
+2025-05-20T15:19:14.809220+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:14.810023+07:00 - INFO - [cached since 1339s ago] ('IoTGuardians', 'Security specialists protecting IoT networks with blockchain-based device authentication and threat detection.', 'Bandung', 'support@iotguardians.io', '$2b$12$2lgHmn036Wt4xERl9o40Ruvxh/dqwbcLGA5x4n1u6/GYvM1jkSKCy', datetime.datetime(2025, 5, 20, 8, 19, 14, 602749), datetime.datetime(2025, 5, 20, 8, 19, 14, 602749))
+2025-05-20T15:19:14.811610+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:14.811996+07:00 - INFO - [cached since 1339s ago (insertmanyvalues) 1/1 (ordered)] ('support@iotguardians.io', 'IoT security', 'support@iotguardians.io', 'blockchain', 'support@iotguardians.io', 'device authentication', 'support@iotguardians.io', 'threat detection')
+2025-05-20T15:19:14.813229+07:00 - INFO - COMMIT
+2025-05-20T15:19:14.815866+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:14.816520+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:14.816926+07:00 - INFO - [cached since 1339s ago] (225,)
+2025-05-20T15:19:14.818996+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:15.040721+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:15.041716+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:15.042208+07:00 - INFO - [cached since 1340s ago] ('contact@smartnode.io',)
+2025-05-20T15:19:15.242555+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:15.243231+07:00 - INFO - [cached since 1340s ago] ('SmartNode Systems', 'Providing scalable IoT gateway solutions with multi-protocol support and edge computing capabilities.', 'Jakarta', 'contact@smartnode.io', '$2b$12$RvlF4FHVZM.btii6.ZpZ4.XHxxOy4kxvOjIGWa40uSvxTlJNkP2me', datetime.datetime(2025, 5, 20, 8, 19, 15, 40353), datetime.datetime(2025, 5, 20, 8, 19, 15, 40353))
+2025-05-20T15:19:15.244850+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:15.245429+07:00 - INFO - [cached since 1340s ago (insertmanyvalues) 1/1 (ordered)] ('contact@smartnode.io', 'IoT gateway', 'contact@smartnode.io', 'edge computing', 'contact@smartnode.io', 'multi-protocol', 'contact@smartnode.io', 'scalability')
+2025-05-20T15:19:15.247938+07:00 - INFO - COMMIT
+2025-05-20T15:19:15.250525+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:15.251347+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:15.251859+07:00 - INFO - [cached since 1340s ago] (227,)
+2025-05-20T15:19:15.254032+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:15.474459+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:15.475371+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:15.475838+07:00 - INFO - [cached since 1340s ago] ('contact@nanosense.io',)
+2025-05-20T15:19:15.665771+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:15.666463+07:00 - INFO - [cached since 1340s ago] ('NanoSense', 'Innovators of nanoscale sensors integrated with IoT for real-time health monitoring and diagnostics.', 'Yogyakarta', 'contact@nanosense.io', '$2b$12$8Vx1s5F1/op8YsMNkjsBo.nqoM7iEJr7cCX9SRaTYOexu4ctafreC', datetime.datetime(2025, 5, 20, 8, 19, 15, 473970), datetime.datetime(2025, 5, 20, 8, 19, 15, 473970))
+2025-05-20T15:19:15.668563+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:15.669103+07:00 - INFO - [cached since 1340s ago (insertmanyvalues) 1/1 (ordered)] ('contact@nanosense.io', 'nanosensors', 'contact@nanosense.io', 'health monitoring', 'contact@nanosense.io', 'IoT', 'contact@nanosense.io', 'diagnostics')
+2025-05-20T15:19:15.670712+07:00 - INFO - COMMIT
+2025-05-20T15:19:15.674377+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:15.675477+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:15.676027+07:00 - INFO - [cached since 1340s ago] (229,)
+2025-05-20T15:19:15.677813+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:15.917940+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:15.918874+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:15.919446+07:00 - INFO - [cached since 1341s ago] ('sales@edgefleet.io',)
+2025-05-20T15:19:16.119518+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:16.120635+07:00 - INFO - [cached since 1341s ago] ('EdgeFleet', 'Fleet management and telemetry solutions for autonomous vehicles with edge data processing.', 'Bandung', 'sales@edgefleet.io', '$2b$12$2VCY2BHzJN2HiFt6eH7k0.BqWdd.ocEQNnEDjVBbj0pWgaFSEmObW', datetime.datetime(2025, 5, 20, 8, 19, 15, 917599), datetime.datetime(2025, 5, 20, 8, 19, 15, 917599))
+2025-05-20T15:19:16.122733+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:16.123267+07:00 - INFO - [cached since 1341s ago (insertmanyvalues) 1/1 (ordered)] ('sales@edgefleet.io', 'fleet management', 'sales@edgefleet.io', 'autonomous vehicles', 'sales@edgefleet.io', 'telemetry', 'sales@edgefleet.io', 'edge computing')
+2025-05-20T15:19:16.125017+07:00 - INFO - COMMIT
+2025-05-20T15:19:16.128530+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:16.129362+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:16.129783+07:00 - INFO - [cached since 1341s ago] (231,)
+2025-05-20T15:19:16.131343+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:16.353613+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:16.354777+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:16.355277+07:00 - INFO - [cached since 1341s ago] ('contact@iotnexus.io',)
+2025-05-20T15:19:16.565981+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:16.567764+07:00 - INFO - [cached since 1341s ago] ('IoT Nexus', 'Integrators of IoT platforms for smart buildings with sensor fusion and automated energy management.', 'Jakarta', 'contact@iotnexus.io', '$2b$12$tsvS3cIKh0lRPwb7AOkOXOzDgRdrQCUhmv4h21MgcvQ5HEs2E.X7u', datetime.datetime(2025, 5, 20, 8, 19, 16, 353161), datetime.datetime(2025, 5, 20, 8, 19, 16, 353161))
+2025-05-20T15:19:16.571535+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:16.572274+07:00 - INFO - [cached since 1341s ago (insertmanyvalues) 1/1 (ordered)] ('contact@iotnexus.io', 'smart buildings', 'contact@iotnexus.io', 'sensor fusion', 'contact@iotnexus.io', 'energy management', 'contact@iotnexus.io', 'IoT')
+2025-05-20T15:19:16.576167+07:00 - INFO - COMMIT
+2025-05-20T15:19:16.580005+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:16.580959+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:16.581543+07:00 - INFO - [cached since 1341s ago] (233,)
+2025-05-20T15:19:16.583527+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:16.826816+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:16.827507+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:16.827986+07:00 - INFO - [cached since 1342s ago] ('support@quantumbots.io',)
+2025-05-20T15:19:17.033496+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:17.034260+07:00 - INFO - [cached since 1342s ago] ('QuantumBots', 'R&D in quantum computing-powered robotics for ultra-fast data processing and control.', 'Yogyakarta', 'support@quantumbots.io', '$2b$12$7dw40qePy7/x5ba72HzGD.UV8GroFoCyIiBFRbGYG0dbt8JJZH.5e', datetime.datetime(2025, 5, 20, 8, 19, 16, 826478), datetime.datetime(2025, 5, 20, 8, 19, 16, 826478))
+2025-05-20T15:19:17.035778+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:17.036489+07:00 - INFO - [cached since 1342s ago (insertmanyvalues) 1/1 (ordered)] ('support@quantumbots.io', 'quantum computing', 'support@quantumbots.io', 'robotics', 'support@quantumbots.io', 'R&D', 'support@quantumbots.io', 'data processing')
+2025-05-20T15:19:17.038158+07:00 - INFO - COMMIT
+2025-05-20T15:19:17.040364+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.041018+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:17.042728+07:00 - INFO - [cached since 1342s ago] (235,)
+2025-05-20T15:19:17.044751+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.321193+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.321945+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.322376+07:00 - INFO - [cached since 1342s ago] ('hello@robopulse.com',)
+2025-05-20T15:19:17.522114+07:00 - INFO - INSERT INTO vendoraccount (name, description, location, email, hashed_password, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::TIMESTAMP WITHOUT TIME ZONE, $7::TIMESTAMP WITHOUT TIME ZONE) RETURNING vendoraccount.id
+2025-05-20T15:19:17.522933+07:00 - INFO - [cached since 1342s ago] ('RoboPulse', 'Designing robotic exoskeletons to enhance human strength and endurance for industrial applications.', 'Bandung', 'hello@robopulse.com', '$2b$12$bQcO.mMNfpEl2S8cEpC1.ePM5hmZ1DY0Vur5juQA3r3aug.XVDI32', datetime.datetime(2025, 5, 20, 8, 19, 17, 320882), datetime.datetime(2025, 5, 20, 8, 19, 17, 320882))
+2025-05-20T15:19:17.525221+07:00 - INFO - INSERT INTO vendortag (vendor_email, tag_name) SELECT p0::VARCHAR, p1::VARCHAR FROM (VALUES ($1::VARCHAR, $2::VARCHAR, 0), ($3::VARCHAR, $4::VARCHAR, 1), ($5::VARCHAR, $6::VARCHAR, 2), ($7::VARCHAR, $8::VARCHAR, 3)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING vendortag.id, vendortag.id AS id__1
+2025-05-20T15:19:17.525738+07:00 - INFO - [cached since 1342s ago (insertmanyvalues) 1/1 (ordered)] ('hello@robopulse.com', 'robotic exoskeleton', 'hello@robopulse.com', 'human augmentation', 'hello@robopulse.com', 'industrial robotics', 'hello@robopulse.com', 'wearables')
+2025-05-20T15:19:17.527353+07:00 - INFO - COMMIT
+2025-05-20T15:19:17.530342+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.531243+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.id = $1::INTEGER
+2025-05-20T15:19:17.531598+07:00 - INFO - [cached since 1342s ago] (237,)
+2025-05-20T15:19:17.533150+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.796624+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.797664+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.798224+07:00 - INFO - [cached since 1343s ago] ('deeplang@example.com',)
+2025-05-20T15:19:17.800593+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.803526+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.803385+07:00"}
+2025-05-20T15:19:17.804152+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.804086+07:00"}
+2025-05-20T15:19:17.832179+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.832953+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.833398+07:00 - INFO - [cached since 1343s ago] ('agrofore@example.com',)
+2025-05-20T15:19:17.835156+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.836446+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.836221+07:00"}
+2025-05-20T15:19:17.836976+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.836916+07:00"}
+2025-05-20T15:19:17.844026+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.844871+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.845328+07:00 - INFO - [cached since 1343s ago] ('lexasemantik@example.com',)
+2025-05-20T15:19:17.847138+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.848233+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.848155+07:00"}
+2025-05-20T15:19:17.848616+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.848564+07:00"}
+2025-05-20T15:19:17.865431+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.866205+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.866677+07:00 - INFO - [cached since 1343s ago] ('neurocast@example.com',)
+2025-05-20T15:19:17.868180+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.869737+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.869636+07:00"}
+2025-05-20T15:19:17.870440+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.870382+07:00"}
+2025-05-20T15:19:17.889740+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.890648+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.891133+07:00 - INFO - [cached since 1343s ago] ('medivision@example.com',)
+2025-05-20T15:19:17.892710+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.893704+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.893627+07:00"}
+2025-05-20T15:19:17.894085+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.894042+07:00"}
+2025-05-20T15:19:17.913601+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.914436+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.914905+07:00 - INFO - [cached since 1343s ago] ('artifisher@example.com',)
+2025-05-20T15:19:17.916296+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.917300+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.917242+07:00"}
+2025-05-20T15:19:17.917721+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.917668+07:00"}
+2025-05-20T15:19:17.936931+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.938240+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.938780+07:00 - INFO - [cached since 1343s ago] ('jualmaks@example.com',)
+2025-05-20T15:19:17.940548+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.941823+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.941744+07:00"}
+2025-05-20T15:19:17.942323+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.942274+07:00"}
+2025-05-20T15:19:17.962360+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:17.963332+07:00 - INFO - SELECT vendoraccount.id, vendoraccount.name, vendoraccount.description, vendoraccount.location, vendoraccount.email, vendoraccount.hashed_password, vendoraccount.created_at, vendoraccount.updated_at 
+FROM vendoraccount 
+WHERE vendoraccount.email = $1::VARCHAR
+2025-05-20T15:19:17.963830+07:00 - INFO - [cached since 1343s ago] ('smartedge@example.com',)
+2025-05-20T15:19:17.965333+07:00 - INFO - ROLLBACK
+2025-05-20T15:19:17.966328+07:00 - ERROR - {"event": "email already registered", "logger": "services.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.966259+07:00"}
+2025-05-20T15:19:17.966761+07:00 - ERROR - {"event": "email already registered", "logger": "api.routers.user_management", "level": "error", "timestamp": "2025-05-20T15:19:17.966714+07:00"}
+2025-05-20T15:19:18.025008+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.025864+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.026524+07:00 - INFO - [cached since 819.3s ago] ('Medical Image Analysis System', 'ai', 'Pembangunan sistem deteksi kelainan paru-paru dari citra X-ray menggunakan deep learning.', 'Model CNN/ViT dengan akurasi >92%, dataset lokal minimal 10.000 gambar, dan explainability features', Decimal('180000000.0'), 'Surabaya', datetime.datetime(2025, 9, 5, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 24375), None)
+2025-05-20T15:19:18.029109+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.029846+07:00 - INFO - [cached since 819.3s ago (insertmanyvalues) 1/1 (ordered)] (76, 'medical ai', 76, 'computer vision', 76, 'healthcare', 76, 'x-ray', 76, 'deep learning')
+2025-05-20T15:19:18.031884+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.062545+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.063524+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.064089+07:00 - INFO - [cached since 819.3s ago] ('Document Processing Automation', 'ai', 'Sistem OCR cerdas untuk ekstraksi data dari faktur dan dokumen legal dengan validasi otomatis', 'Akurasi >95% untuk dokumen scan low-quality, post-processing rules engine, dan integrasi dengan SAP', Decimal('150000000.0'), 'Tangerang', datetime.datetime(2025, 8, 20, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 62067), None)
+2025-05-20T15:19:18.067052+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.067698+07:00 - INFO - [cached since 819.3s ago (insertmanyvalues) 1/1 (ordered)] (78, 'ocr', 78, 'document ai', 78, 'data extraction', 78, 'automation', 78, 'enterprise')
+2025-05-20T15:19:18.072098+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.097843+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.098533+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.098940+07:00 - INFO - [cached since 819.4s ago] ('Social Media Sentiment Analyzer', 'ai', 'Alat monitoring sentimen brand secara real-time dari Twitter, Instagram, dan TikTok', 'Support analisis slang Indonesia, trending topic detection, dan API export ke Google Sheets', Decimal('75000000.0'), 'Jakarta', datetime.datetime(2025, 8, 1, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 97404), None)
+2025-05-20T15:19:18.101221+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.101689+07:00 - INFO - [cached since 819.4s ago (insertmanyvalues) 1/1 (ordered)] (80, 'sentiment analysis', 80, 'social media', 80, 'real-time', 80, 'brand monitoring', 80, 'nlp')
+2025-05-20T15:19:18.103177+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.125763+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.126431+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.126880+07:00 - INFO - [cached since 819.4s ago] ('Agricultural Yield Prediction', 'ai', 'Model prediksi hasil panen padi berdasarkan data satelit, cuaca, dan kondisi tanah', 'Akurasi >85% untuk varietas lokal Jawa, mobile-friendly dashboard untuk petani', Decimal('110000000.0'), 'Yogyakarta', datetime.datetime(2025, 9, 8, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 125336), None)
+2025-05-20T15:19:18.129047+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.129420+07:00 - INFO - [cached since 819.4s ago (insertmanyvalues) 1/1 (ordered)] (82, 'agritech', 82, 'satellite imagery', 82, 'forecasting', 82, 'precision farming', 82, 'machine learning')
+2025-05-20T15:19:18.130618+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.151031+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.151955+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.152430+07:00 - INFO - [cached since 819.4s ago] ('Personalized Learning Recommender', 'ai', 'Sistem rekomendasi konten edukasi berbasis kemampuan dan gaya belajar siswa', 'Cold-start solution untuk user baru, multi-platform support, dan tracking progress', Decimal('125000000.0'), 'Depok', datetime.datetime(2025, 9, 15, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 150476), None)
+2025-05-20T15:19:18.154668+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.155079+07:00 - INFO - [cached since 819.4s ago (insertmanyvalues) 1/1 (ordered)] (84, 'edtech', 84, 'recommender system', 84, 'personalization', 84, 'adaptive learning', 84, 'education')
+2025-05-20T15:19:18.157119+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.179091+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.179796+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.180219+07:00 - INFO - [cached since 819.5s ago] ('Trade Marketing Program', 'sales', 'Pengembangan program merchandising dan POS materials untuk jaringan retail modern', 'Desain sesuai guideline brand, distribusi ke 500+ outlet, dan monitoring bulanan', Decimal('180000000.0'), 'Jabodetabek', datetime.datetime(2025, 7, 25, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 178666), None)
+2025-05-20T15:19:18.182375+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.182760+07:00 - INFO - [cached since 819.4s ago (insertmanyvalues) 1/1 (ordered)] (86, 'trade marketing', 86, 'merchandising', 86, 'retail', 86, 'posm', 86, 'sales')
+2025-05-20T15:19:18.184523+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.209741+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.210551+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.210965+07:00 - INFO - [cached since 819.5s ago] ('Loyalty Program Redesign', 'marketing', 'Revitalisasi program loyalitas dengan mekanisme tiered rewards dan personalisasi', 'Desain program berbasis data existing, simulasi ROI, dan implementasi di 100+ gerai', Decimal('150000000.0'), 'Jakarta', datetime.datetime(2025, 8, 5, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 209222), None)
+2025-05-20T15:19:18.213272+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.213813+07:00 - INFO - [cached since 819.5s ago (insertmanyvalues) 1/1 (ordered)] (88, 'loyalty program', 88, 'customer retention', 88, 'retail', 88, 'membership', 88, 'reward system')
+2025-05-20T15:19:18.215410+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.240548+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.241317+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.241715+07:00 - INFO - [cached since 819.5s ago] ('OOH Media Placement', 'advertising', 'Pemasangan iklan billboard dan transit media di 15 lokasi strategis Jabodetabek', 'Lokasi premium dengan traffic >100k/day, desain kreatif, dan laporan footfall analysis', Decimal('420000000.0'), 'Jabodetabek', datetime.datetime(2025, 8, 18, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 240105), None)
+2025-05-20T15:19:18.243957+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.244344+07:00 - INFO - [cached since 819.5s ago (insertmanyvalues) 1/1 (ordered)] (90, 'ooh', 90, 'billboard', 90, 'outdoor ads', 90, 'branding', 90, 'media placement')
+2025-05-20T15:19:18.245746+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.270699+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.271597+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.272055+07:00 - INFO - [cached since 819.5s ago] ('Retail Audit Nationwide', 'sales', 'Audit harga dan availability produk di 2000 titik retail tradisional', 'Tim surveyor tersertifikasi, mobile data collection, dan analisis kompetitif', Decimal('290000000.0'), 'Indonesia', datetime.datetime(2025, 9, 10, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 269986), None)
+2025-05-20T15:19:18.274677+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.275229+07:00 - INFO - [cached since 819.5s ago (insertmanyvalues) 1/1 (ordered)] (92, 'retail audit', 92, 'market intelligence', 92, 'pricing', 92, 'distribution', 92, 'field team')
+2025-05-20T15:19:18.276693+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.299541+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.300561+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.301150+07:00 - INFO - [cached since 819.6s ago] ('Brand Identity Redesign', 'branding', 'Penyegaran identitas merek termasuk logo, brand book, dan aplikasi visual', 'Portfolio rebranding B2B, workshop stakeholder, dan guideline multichannel', Decimal('85000000.0'), 'Jakarta', datetime.datetime(2025, 7, 31, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 298997), None)
+2025-05-20T15:19:18.304072+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.304985+07:00 - INFO - [cached since 819.6s ago (insertmanyvalues) 1/1 (ordered)] (94, 'branding', 94, 'logo design', 94, 'visual identity', 94, 'rebranding', 94, 'creative')
+2025-05-20T15:19:18.306845+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.345479+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.346127+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.346738+07:00 - INFO - [cached since 819.6s ago] ('AR Maintenance Guide Development', 'ar/vr', 'Pembuatan panduan perbaikan mesin berbasis augmented reality untuk teknisi lapangan', 'Unity development, markerless tracking, dan offline functionality', Decimal('165000000.0'), 'Batam', datetime.datetime(2025, 9, 15, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 345014), None)
+2025-05-20T15:19:18.348916+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.349299+07:00 - INFO - [cached since 819.6s ago (insertmanyvalues) 1/1 (ordered)] (97, 'ar', 97, 'maintenance', 97, 'field service', 97, 'industrial', 97, 'training')
+2025-05-20T15:19:18.350785+07:00 - INFO - COMMIT
+2025-05-20T15:19:18.372535+07:00 - INFO - BEGIN (implicit)
+2025-05-20T15:19:18.373193+07:00 - INFO - INSERT INTO requestprocurement (title, category, description, requirements, price, location, due_date, status, created_at, updated_at) VALUES ($1::VARCHAR, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::NUMERIC(20, 2), $6::VARCHAR, $7::TIMESTAMP WITHOUT TIME ZONE, $8::VARCHAR, $9::TIMESTAMP WITHOUT TIME ZONE, $10::TIMESTAMP WITHOUT TIME ZONE) RETURNING requestprocurement.id
+2025-05-20T15:19:18.373595+07:00 - INFO - [cached since 819.6s ago] ('Biometric Attendance System', 'security', 'Pengadaan sistem absensi multi-biometrik (wajah + sidik jari) untuk 500 karyawan', 'Anti-spoofing technology, cloud sync, dan laporan kehadiran real-time', Decimal('95000000.0'), 'Semarang', datetime.datetime(2025, 8, 25, 23, 59, 59), 'open', datetime.datetime(2025, 5, 20, 8, 19, 18, 372104), None)
+2025-05-20T15:19:18.375698+07:00 - INFO - INSERT INTO requesttag (request_id, tag_name) SELECT p0::INTEGER, p1::VARCHAR FROM (VALUES ($1::INTEGER, $2::VARCHAR, 0), ($3::INTEGER, $4::VARCHAR, 1), ($5::INTEGER, $6::VARCHAR, 2), ($7::INTEGER, $8::VARCHAR, 3), ($9::INTEGER, $10::VARCHAR, 4)) AS imp_sen(p0, p1, sen_counter) ORDER BY sen_counter RETURNING requesttag.id, requesttag.id AS id__1
+2025-05-20T15:19:18.376177+07:00 - INFO - [cached since 819.6s ago (insertmanyvalues) 1/1 (ordered)] (99, 'biometric', 99, 'attendance', 99, 'hr', 99, 'security', 99, 'access control')
+2025-05-20T15:19:18.377671+07:00 - INFO - COMMIT
+2025-05-20T17:02:10.183448+07:00 - INFO - BEGIN (implicit)
+2025-05-20T17:02:10.185095+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T17:02:10.185637+07:00 - INFO - [cached since 1.01e+04s ago] (5, 30)
+2025-05-20T17:02:10.190017+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T17:02:10.190541+07:00 - INFO - [cached since 1.01e+04s ago] (69, 68, 67, 66, 65)
+2025-05-20T17:02:10.195016+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T17:02:10.195823+07:00 - INFO - [cached since 1.01e+04s ago] ()
+2025-05-20T17:02:10.198188+07:00 - INFO - ROLLBACK
+2025-05-20T17:02:11.403345+07:00 - INFO - BEGIN (implicit)
+2025-05-20T17:02:11.404081+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T17:02:11.404500+07:00 - INFO - [cached since 1.01e+04s ago] (5, 65)
+2025-05-20T17:02:11.406778+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T17:02:11.407177+07:00 - INFO - [cached since 1.01e+04s ago] (34, 33, 32, 31, 30)
+2025-05-20T17:02:11.411489+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T17:02:11.412267+07:00 - INFO - [cached since 1.01e+04s ago] ()
+2025-05-20T17:02:11.414183+07:00 - INFO - ROLLBACK
+2025-05-20T17:02:12.972612+07:00 - INFO - BEGIN (implicit)
+2025-05-20T17:02:12.973378+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T17:02:12.973830+07:00 - INFO - [cached since 1.01e+04s ago] (5, 20)
+2025-05-20T17:02:12.976424+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T17:02:12.977103+07:00 - INFO - [cached since 1.01e+04s ago] (79, 78, 77, 76, 75)
+2025-05-20T17:02:12.980101+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T17:02:12.980695+07:00 - INFO - [cached since 1.01e+04s ago] ()
+2025-05-20T17:02:12.982529+07:00 - INFO - ROLLBACK
+2025-05-20T17:02:14.646289+07:00 - INFO - BEGIN (implicit)
+2025-05-20T17:02:14.647511+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T17:02:14.648054+07:00 - INFO - [cached since 1.01e+04s ago] (5, 65)
+2025-05-20T17:02:14.650334+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T17:02:14.651114+07:00 - INFO - [cached since 1.01e+04s ago] (34, 33, 32, 31, 30)
+2025-05-20T17:02:14.653368+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T17:02:14.653989+07:00 - INFO - [cached since 1.01e+04s ago] ()
+2025-05-20T17:02:14.655574+07:00 - INFO - ROLLBACK
+2025-05-20T17:02:19.722485+07:00 - INFO - BEGIN (implicit)
+2025-05-20T17:02:19.723696+07:00 - INFO - SELECT requestprocurement.id, requestprocurement.title, requestprocurement.category, requestprocurement.description, requestprocurement.requirements, requestprocurement.price, requestprocurement.location, requestprocurement.due_date, requestprocurement.status, requestprocurement.created_at, requestprocurement.updated_at 
+FROM requestprocurement ORDER BY requestprocurement.id DESC 
+ LIMIT $1::INTEGER OFFSET $2::INTEGER
+2025-05-20T17:02:19.724242+07:00 - INFO - [cached since 1.011e+04s ago] (5, 45)
+2025-05-20T17:02:19.728887+07:00 - INFO - SELECT requesttag.request_id AS requesttag_request_id, requesttag.id AS requesttag_id, requesttag.tag_name AS requesttag_tag_name 
+FROM requesttag 
+WHERE requesttag.request_id IN ($1::INTEGER, $2::INTEGER, $3::INTEGER, $4::INTEGER, $5::INTEGER)
+2025-05-20T17:02:19.730525+07:00 - INFO - [cached since 1.011e+04s ago] (54, 53, 52, 51, 50)
+2025-05-20T17:02:19.734440+07:00 - INFO - SELECT count(*) AS count_1 
+FROM requestprocurement
+2025-05-20T17:02:19.735211+07:00 - INFO - [cached since 1.011e+04s ago] ()
+2025-05-20T17:02:19.737144+07:00 - INFO - ROLLBACK
